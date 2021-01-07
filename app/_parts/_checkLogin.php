@@ -8,7 +8,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time() ) {
   $member = $members->fetch();
   // loginでmemberを識別するidをsessionに入れることで、他のファイルでも使用できるようにする
 } else {
-  header('Location: http://54.95.90.0/web/login.php');
+  header('Location: https://liko.link/web/login.php');
   exit();
 }
 ?>

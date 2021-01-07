@@ -59,7 +59,7 @@ if(!empty($_POST)){
     $_SESSION['join']['time'] = $postImgTime;
     //セッションにPOSTの値を保存して、次の画面へ
     //imageはパス用の名前を保存、timeは画像の有無判定に使用する
-    header('Location: http://54.95.90.0/join/web/check.php');
+    header('Location: https://liko.link/join/web/check.php');
     exit();
   }
 }

@@ -21,7 +21,7 @@ if ($_COOKIE['sessionid'] != '') {
 
     setcookie('sessionid', $sessionid, time() + 60 * 60 * 24 * 14);
 
-    header('Location: http://54.95.90.0/web/index.php');
+    header('Location: https://liko.link/web/index.php');
     exit();
   }
 }
@@ -47,7 +47,7 @@ if (!empty($_POST)) {
         //直で2番目の値にhash関数を入れてはいけない
       }
   
-      header('Location: http://54.95.90.0/web/index.php');
+      header('Location: https://liko.link/web/index.php');
       exit();
   
       } else {

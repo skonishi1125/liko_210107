@@ -62,7 +62,7 @@ if (isset($_POST['review'])) {
       $member['id'], $_POST['postid'], $member['picture'], $_POST['review'],
     ));
 
-    header('Location: http://54.95.90.0/web/userpage.php');
+    header('Location: https://liko.link/web/userpage.php');
     exit();
     //これないと更新するたび増えていく
   }else{

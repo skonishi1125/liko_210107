@@ -9,7 +9,7 @@ require('../app/functions.php');
 require('../app/_parts/_checkLogin.php');
 
 if ($_SESSION['changeThanks'] != 'true') {
-  header('Location: http://54.95.90.0/web/index.php');
+  header('Location: https://liko.link/web/index.php');
   exit();
 }
 

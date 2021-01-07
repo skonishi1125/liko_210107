@@ -33,7 +33,7 @@ if (!empty($_FILES)) {
       $_SESSION['join']['image'] = $image;
       $_SESSION['join']['time'] = $postImgTime;
 
-      header('Location: http://54.95.90.0/web/checkIcon.php');
+      header('Location: https://liko.link/web/checkIcon.php');
       exit();
 
   }
