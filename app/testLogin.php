@@ -17,7 +17,7 @@ if ($member) {
   $_SESSION['time'] = time();
   $sessionid = hash('sha256', $_POST['email']);
 
-header('Location: http://localhost:8888/liko_201223/web/index.php');
+header('Location: http://54.95.90.0/web/index.php');
 exit();
 
 }

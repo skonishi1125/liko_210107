@@ -10,7 +10,7 @@ require('../app/_parts/_checkLogin.php');
 
 //URL直接記入できた場合、追い返す
 if (!isset($_SESSION['join'])) {
-  header('Location: http://localhost:8888/liko_201223/web/index.php');
+  header('Location: http://54.95.90.0/web/index.php');
   exit();
 }
 
@@ -108,7 +108,7 @@ if(!empty($_POST)) {
   // changeResult.phpにURL記入で繋げなくする処理
   $_SESSION['changeThanks'] = "true";
 
-  header('Location: http://localhost:8888/liko_201223/web/changeResult.php');
+  header('Location: http://54.95.90.0/web/changeResult.php');
   exit();
 
 }

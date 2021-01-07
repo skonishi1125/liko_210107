@@ -116,7 +116,7 @@ if (!empty($_POST)) {
         imageOrientation('../post_picture/'.h($imageName), $exif_data['Orientation']);
       }
 
-      header('Location: http://localhost:8888/liko_201223/web/index.php');
+      header('Location: http://54.95.90.0/web/index.php');
       exit();
 
     } /* enpty($error) */
@@ -153,7 +153,7 @@ if (!empty($_POST)) {
         }
 
       }
-      header('Location: http://localhost:8888/liko_201223/web/index.php');
+      header('Location: http://54.95.90.0/web/index.php');
       exit();
     } /* enpty($error) */
   } // メッセージだけが入っていた場合の処理
@@ -234,7 +234,7 @@ if (!empty($_POST)) {
       imageOrientation('../post_picture/'.h($imageName), $exif_data['Orientation']);
     }
 
-      header('Location: http://localhost:8888/liko_201223/web/index.php');
+      header('Location: http://54.95.90.0/web/index.php');
       exit();
     }
   } /* empty($error) */
@@ -312,7 +312,7 @@ $_SESSION['currentURI'] = $_SERVER['REQUEST_URI'];
 
 //   //echo $goodRetを使わない場合はこちらを採用する　$goodRet = $goodState->fetch();
 
-//   header('Location: http://localhost:8888/liko_201223/web/index.php');
+//   header('Location: http://54.95.90.0/web/index.php');
 //   exit();
 
 // }
@@ -325,7 +325,7 @@ if (isset($_POST['review'])) {
       $member['id'], $_POST['postid'], $member['picture'], $_POST['review'],
     ));
 
-    header('Location: http://localhost:8888/liko_201223/web/index.php');
+    header('Location: http://54.95.90.0/web/index.php');
     exit();
     //これないと更新するたび増えていく
   }else{

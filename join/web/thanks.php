@@ -3,7 +3,7 @@ session_start();
 require('../app/functions.php');
 
 if ($_SESSION['thanks'] != 'true') {
-  header('Location: http://localhost:8888/liko_201223/join/web/index.php');
+  header('Location: http://54.95.90.0/join/web/index.php');
   exit();
 }
 

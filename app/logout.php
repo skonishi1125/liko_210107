@@ -11,7 +11,7 @@ session_destroy();
 //クッキーの削除
 setcookie('sessionid', '', time()-3600);
 
-header('Location: http://localhost:8888/liko_201223/join/web/index.php');
+header('Location: http://54.95.90.0/join/web/index.php');
 exit();
 
 ?>
