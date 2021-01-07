@@ -3,7 +3,7 @@ session_start();
 require('dbconnect.php');
 //テストアカウントでのログイン
 
-$_POST['email'] = 'test';
+$_POST['email'] = 'test@test.com';
 $_POST['password'] = 'test';
 
 

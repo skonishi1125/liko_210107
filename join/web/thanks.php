@@ -51,6 +51,8 @@ include('../app/_parts/_header.php');
       <i class="fas fa-sign-in-alt mr-2"></i>ログイン画面へ
     </a>
   </div>
+
+  <!-- ログイン画面へボタンを押すとlocalhostに飛ぶ？？？？ -->
  
 </section>
 
