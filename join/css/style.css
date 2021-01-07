@@ -1,0 +1,556 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  position: relative;
+}
+
+p, a {
+  font-size: 90%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+
+/* 
+入力エラー用のモーダル
+*/
+
+.modal-bgBlack {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 10;
+  transition: 0.8s;
+}
+
+.modal-container {
+  position: fixed;
+  top: 50px;
+  width: 50%;
+  margin-left: 25%;
+  min-height: 300px;
+  z-index: 15;
+}
+
+.modal-title {
+  text-align: center;
+  border-bottom: 1px dotted #999;
+}
+
+
+
+/* 
+ページ上部のヘッダーバー
+*/
+.resHeader-bar {
+  display: none;
+}
+
+.header-bar {
+  background-color: white;
+  width: 90%;
+  height: 45px;
+  margin: 0 auto;
+  border-radius: 30px;
+  position: fixed;
+  top: 30px;
+  left: 5%;
+  box-shadow: 0px 8px 10px rgba(0,0,0,0.4);
+  z-index: 5;
+}
+
+.header-barLogo {
+  display: inline-block;
+  height: 45px;
+}
+
+.header-barButtons {
+  /* barボタンを右端固定 */
+  position: absolute;
+  top: 7px;
+  right: 30px;
+}
+
+.header-barButtons li {
+  /* 横並べ */
+  float: left;
+  margin-left: 10px;
+}
+
+.header-barButtons i {
+  margin-right: 0.5em;
+}
+
+/* 
+ヘッダー
+*/
+
+/* 
+.header-wrapper {
+  height: 650px;
+  margin: 0;
+  background: no-repeat fixed center bottom / cover ;
+  background: url("../img/head1.png") no-repeat fixed center bottom / cover ;
+  position: relative;
+} 
+*/
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 650px;
+  width: 100%;
+  background-size: cover;
+  background-position: 50% 100%;
+  z-index: -1;
+  margin: 0;
+}
+
+.header-wrapperSpace {
+  margin-top: 650px;
+}
+
+.background-white {
+  background-color: white;
+}
+
+
+
+.header-wrapperLogo {
+  position: absolute;
+  left: 6vh;
+  bottom: 5vh;
+  color: white;
+  text-align: center;
+}
+
+.header-wrapperLogo img {
+  height: 60px;
+}
+
+/* 
+登録フォーム
+*/
+
+.header-wrapperRegister {
+  position: absolute;
+  top: -550px;
+  right: 8vh;
+  width: 500px;
+  height: auto;
+  background-color: white;
+  border: 1px solid #777;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  font-size: 80%;
+  z-index: 2;
+}
+
+.header-wrapperRegister form {
+  /* フォーム入力欄の拡張 h-wRegiで指定した500px以下 */
+  width: 470px;
+}
+
+.header-wrapperRegister h5 {
+  text-align: center;
+  border-bottom: 1px dotted #999;
+  padding-bottom: 5px;
+}
+
+/* 
+イントロダクション1
+*/
+
+.intro-container {
+  height: auto;
+}
+
+.intro-centerBar {
+  width: 80px;
+  border-bottom: 4px solid #999;
+  margin: 0 auto;
+}
+
+.intro-container h4 {
+  /* 見出し 中央 */
+  text-align: center;
+}
+
+.intro-container img {
+  width: 100%;
+}
+
+.intro-containerMessages {
+  line-height: 1.5em;
+}
+
+/* 
+イントロダクション2
+*/
+
+.intro-containerBg {
+  /* height: auto; */
+  background-size: cover;
+  background-position: 50% 100%;
+  color: white;
+}
+
+/* 
+FAQ画面
+*/
+
+.intro-containerFAQ {
+  width: 100%;
+}
+
+.intro-containerFAQ h5 {
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 5px;
+  /* box-shadow: 0px 5px 10px rgba(0,0,0,0.2); */
+  letter-spacing: 1px;
+  border: 1px solid rgba(0,0,0,.125);
+  color: #333;
+}
+
+.intro-containerFAQ h5:hover {
+  cursor: pointer;
+}
+
+.card-body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.fa-plus, .fa-minus {
+  transition: 0.8s;
+  float: right;
+}
+
+.circle {
+  transform: rotate(360deg);
+}
+
+.skelton {
+  opacity: 0.01;
+}
+
+
+/* 
+はじめてみよう
+*/
+
+.getStartButtons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.getStartNote h6{
+  border-bottom: 1px dotted rgb(102, 194, 255);
+  text-align: center;
+}
+
+.getStartNote p {
+  text-align: center;
+}
+
+.responsive-registerbutton {
+  display: none;
+}
+
+
+/* 
+プロフィール
+*/
+
+
+.profile img {
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-left: 10%;
+}
+
+.profile h6 {
+  font-weight: 600;
+}
+
+.profileTexts {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+
+/* 
+フッター
+*/
+
+footer {
+  background-color: rgb(247, 194, 51);
+}
+
+.footer-logo{
+  text-align: center;
+}
+
+.footer-logo img{
+  height: 40px;
+}
+
+.footer-container{
+  text-align: center;
+  color: white;
+  letter-spacing: 2px;
+}
+
+
+/* 
+--------------
+check.php
+--------------
+*/
+
+.check-wrapper {
+  margin-top: 150px;
+  border: 2px solid rgba(255,205,73,1);
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(196, 194, 122, 0.4);
+  width: 90%;
+  max-width: 600px;
+}
+
+.check-wrapperTitle {
+  text-align: center;
+  border-bottom: 1px dotted rgb(102, 194, 255);
+}
+
+.check-wrapper h5 {
+  font-weight: 600;
+}
+
+.check-buttons {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.check-iconImg {
+  object-fit: cover;
+  width:80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.login_thanks_checkbar {
+  margin-top: 0 !important;
+  margin-bottom: 30px;
+}
+
+/* 
+--------------
+thanks.php
+--------------
+*/
+
+.thanksText {
+  text-align: center;
+}
+
+
+
+
+/* 
+--------------
+レスポンシブ(col-md基準)
+--------------
+*/
+
+@media screen and (max-width: 767px) {
+
+  /* 
+  ヘッダーバーについて
+  */
+
+  .header-bar {
+    display: none;
+  }
+
+  .header-wrapperRegister {
+    display: none;
+  }
+
+  .resHeader-bar {
+    display: flex;
+    /* 背景画像のスペース */
+    margin-top: 40vh;
+  }
+
+  .navbar-contents li {
+    padding: 5px 0;
+  }
+
+  .navbar-contents li:hover {
+    background-color: #474e57;
+    transition: 0.5s;
+  }
+  
+  .navbar-contents a, .navbar-contents i {
+    color: white;
+  }
+
+  .navbar-contents a {
+    display: block;
+  }
+
+  .navbar-contents i {
+    margin-right: 5px;
+  }
+
+  .modal-content {
+    font-size: 80%;
+  }
+
+  /*
+    ヘッダー(bg画像あり)の高さ
+  */
+
+  .header-wrapper {
+    height: 55vh;
+    width: 100%;
+  }
+
+  .header-wrapperLogo {
+    position: absolute;
+    left: 3vh;
+    bottom: 17vh;
+    color: white;
+    text-align: center;
+  }
+  
+  .header-wrapperLogo img {
+    height: 60px;
+  }
+
+  .resHeader-bgWrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: 50% 100%;
+    z-index: -1;
+    margin: 0;
+    /* background: no-repeat fixed center bottom / cover ; */
+  }
+
+  .header-wrapperSpace {
+    margin: 0;
+  }
+  
+
+
+
+  /* 
+  FAQ
+  */
+
+  .intro-containerFAQ b {
+    font-size: 80%;
+  }
+
+  /*
+  エラーモーダル
+  */
+
+  .modal-container {
+    width: 95%;
+    min-height: 100px;
+    position: fixed;
+    top: 100px;
+    margin: 0 2.5%;
+    font-size: 80%;
+  }
+
+  .modal-title {
+    font-size: 14px;
+  }
+
+  /* 
+  登録モーダル
+  */
+
+  .resRegister-modal-title {
+    border: none;
+    font-size: 16px;
+    font-weight: 550;
+    margin-left: 20px;
+  }
+
+  /* 
+  はじめてみよう のボタン
+  */
+
+  .noResponsive-registerbutton {
+    display: none;
+  }
+
+  .responsive-registerbutton {
+    display: block;
+  }
+
+
+
+
+  footer {
+    background-color: #282C31;
+  }
+
+
+  .footer-logo img{
+    height: 30px;
+  }
+  
+  .footer-container{
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 90%;
+  }
+
+  .footer-container p {
+    margin-bottom: 5px;
+  }
+
+  /* 
+  --------------
+  check.php
+  --------------
+  */
+
+  .check-wrapper {
+    margin-top: 0;
+  }
+
+
+
+
+
+}

@@ -1,0 +1,649 @@
+/* メインのcss */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  position: relative;
+}
+
+p, a {
+  font-size: 90%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* 
+-----
+login.php
+-----
+ */
+
+/* 
+ページ上部のヘッダーバー
+*/
+
+.header-bar {
+  background-color: white;
+  width: 90%;
+  height: 45px;
+  margin: 0 auto;
+  border-radius: 30px;
+  position: fixed;
+  top: 30px;
+  left: 5%;
+  box-shadow: 0px 8px 10px rgba(0,0,0,0.4);
+  z-index: 5;
+}
+
+.header-barLogo {
+  display: inline-block;
+  height: 45px;
+}
+
+.header-barButtons {
+  /* barボタンを右端固定 */
+  position: absolute;
+  top: 7px;
+  right: 30px;
+}
+
+.header-barButtons li {
+  /* 横並べ */
+  float: left;
+  margin-left: 10px;
+}
+
+.header-barButtons i {
+  margin-right: 0.5em;
+}
+
+.login_thanks_checkbar {
+  display: none;
+}
+
+/* 
+フォーム
+*/
+
+.check-wrapper {
+  margin-top: 150px;
+  border: 2px solid rgba(255,205,73,1);
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(196, 194, 122, 0.4);
+  width: 95%;
+  max-width: 600px;
+}
+
+.check-wrapperTitle {
+  text-align: center;
+  border-bottom: 1px dotted rgb(102, 194, 255);
+}
+
+.check-wrapper h5 {
+  font-weight: 600;
+}
+
+.check-buttons {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+
+
+
+
+/* 
+-----
+index.php
+-----
+ */
+
+
+.indexHeader-bar {
+  margin: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(255,205,73,1);
+  color: white;
+  text-align: center;
+}
+
+.indexHeader-logo {
+  height: 30px;
+}
+
+.leftFix-contents {
+  position: relative;
+  height: 300px;
+  display: inline;
+}
+
+.leftFix-configMenus {
+  position: fixed;
+  top: 50px;
+  width: 15%;
+  max-width: 175px;
+  font-size: 110%;
+}
+
+.leftFix-menusBorder {
+  border-bottom: 1px dotted rgba(88,117,198,1);
+  margin-top: 5px;
+}
+
+.leftFix-configMenus a {
+  display: block;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.leftFix-configMenus a:hover {
+  transition: background-color 0.5s ease 0s;
+  background-color: rgba(88,117,198,0.2);
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.leftFix-configMenus i {
+  margin: 0 10px;
+}
+
+.leftFix-searchForm {
+  margin-top: 20px;
+}
+
+.leftFix-searchForm p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.searchForm {
+  position: relative;
+}
+
+.searchBox {
+  font-size: 12px;
+}
+
+.leftFix-userPost {
+  border-top: 1px dotted rgba(88,117,198,1);
+  background-color: white;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  position: fixed;
+  bottom: 0px;
+  width: 15%;
+  max-width: 175px;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.leftFix-userPost img {
+  width: 40px;
+  height: 40px;
+}
+
+.iconImg{
+  object-fit: cover;
+  width:80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* 
+ユーザー投稿フォーム(modal)
+*/
+#userPost-modal h5{
+  font-weight: 550;
+  margin-left: 27%;
+}
+
+.userPost-modalForm {
+  font-size: 90%;
+}
+
+.userPost-modalForm label {
+  font-weight: 550;
+}
+
+
+/* 
+エラーアラート
+*/
+
+.error-wrapperLength {
+  max-width: 83%;
+}
+
+/* 
+ ログインユーザーへの挨拶
+*/
+
+.userGreeting {
+  border-bottom: 1px solid #888;
+}
+
+.userGreeting img {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+/* 
+ユーザー投稿
+*/
+
+.container-fluid {
+  max-width: 1400px;
+}
+
+.tweet-wrapper {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  word-break: break-all;
+}
+
+.tweetContents {
+  margin-top: 40px;
+  padding-bottom: 10px;
+  border: 2px solid rgba(88,117,198,1);
+  border-radius: 5px;
+}
+
+/* ユーザー名、postID、投稿時間 */
+
+.tweetContents-user {
+  display: inline;
+}
+
+.tweetContents-user img {
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* 投稿内容 */
+
+.tweetContents-post {
+  
+}
+
+.tweetContents-post h4 {
+  border-bottom: 1px solid #888;
+  font-weight: 500;
+}
+
+.dotLine {
+  width: 100%;
+  border-bottom: 1px dotted #888;
+}
+
+/* 投稿内容(画像、動画) */
+.tweetContents-media {
+  text-align: center;
+}
+
+/* 投稿のリアクション*/
+
+.tweetContents-reaction {
+  position: relative;
+}
+
+.tweetContents-reaction textarea {
+  font-size: 80%;
+  height: 80px;
+}
+
+.comment-postButton {
+  position: absolute;
+  top: 50px;
+  right: -87px;
+  z-index: 2;
+  font-size: 12px;
+}
+
+.reaction-space {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+/* 
+投稿に対してのコメント表示
+*/
+
+
+
+.comment-wrapper img {
+  object-fit: cover;
+  width:50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.comment-border{
+  border: 2px solid rgba(255,205,73,1);
+  border-radius: 10px;
+  position: relative;
+  word-break: break-all;
+  padding: 0px 20px;
+}
+
+.borderTriangle{
+  position: absolute;
+  top:-41px;
+  width: 0px;
+  height: 0px;
+  border:20px solid rgba(255,205,73,1);
+  border-top: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+}
+
+.borderTriWhite{
+  position: absolute;
+  top:-37px;
+  width: 0px;
+  height: 0px;
+  border:20px solid rgba(255,255,255,1);
+  border-top: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+}
+
+.comment-deleteBtn {
+  position: relative;
+  right: 0px;
+  padding-right: 0px;
+}
+
+/* 
+ページネーション
+*/
+
+.page-wrapper ul {
+  justify-content: center;
+}
+
+
+/* 
+レスポンシブフッターメニュー
+*/
+
+.responsive-footerMenus {
+  display: none;
+}
+.responsive-postButton {
+  display: none;
+}
+
+
+
+/* 
+フッタークレジット
+*/
+
+.footer-credit {
+  text-align: center;
+}
+
+
+/* 
+-----
+changeIcon.phpなど
+-----
+ */
+
+
+.changeIcon-form {
+  font-size: 90%;
+}
+
+.check-iconImg {
+  object-fit: cover;
+  width:80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+/* 
+------------------------------------------
+レスポンシブ(col-md基準)
+------------------------------------------
+*/
+
+@media screen and (max-width: 973px) {
+  /* leftFix-configMenusの文字調節用 */
+  .leftFix-configMenus {
+    font-size: 83%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  /* 
+  -----
+  login.php ヘッダーバー関連
+  -----
+  */
+  .header-bar {
+    display: none;
+  }
+
+  .check-wrapper {
+    margin-top: 50px;
+  }
+
+  .login_thanks_checkbar {
+    display: block;
+  }
+  .resHeader-bar {
+    display: flex;
+  }
+
+  .navbar-contents li {
+    padding: 5px 0;
+  }
+
+
+  .navbar-contents li:hover {
+    background-color: #474e57;
+    transition: 0.5s;
+  }
+  
+  .navbar-contents a, .navbar-contents i {
+    color: white;
+  }
+
+  .navbar-contents a {
+    display: block;
+  }
+
+  .navbar-contents i {
+    margin-right: 5px;
+  }
+
+  /* 
+  -----
+  index.php
+  -----
+  */
+  
+
+  .leftFix-contents {
+    display: none;
+  }
+
+  .error-wrapperLength {
+    max-width: 100%;
+    margin-top: 50px !important;
+  }
+
+  .userGreeting {
+    margin-top: 25px;
+  }
+
+  /* 
+  エラーモーダルの大きさ調整
+  */
+  .error-wrapperLength {
+    font-size: 85%;
+  }
+
+  .error-wrapperLength h5{
+    font-size: 16px;
+  }
+
+  /*
+   投稿のスペースUP
+  */
+  .tweet-wrapper {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .tweetContents {
+    margin-top: 20px;
+    /* padding-left: 25px !important; */
+  }
+  
+
+  .container-fluid  {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .comment-wrapper {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .tweetContents-reaction h6{
+    display: none;
+  }
+
+  .tweetContents-reaction textarea {
+    height: 60px;
+}
+
+  /* リアクションスペース */
+
+  .reaction-space {
+    position: relative;
+    top: -30px;
+    left: 15px;
+  }
+
+  .comment-postButton {
+    position: relative;
+    top: 0;
+    left: 0;
+    float: right;
+  }
+
+  .comment-border{
+    padding: 0px 30px;
+  }
+
+  /* 
+  レスポンシブフッターメニュー
+  */
+
+  .responsive-footerMenus {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 4;
+    text-align: center;
+  }
+
+  .responsive-footerMenus a {
+    width: 23%;
+    display: inline-block;
+    padding-top: 6px;
+    padding-bottom: 100%;
+    font-size: 120%;
+  }
+
+  .responsive-postButton {
+    display: block;
+    position: fixed;
+    right: 35px;
+    bottom: 70px;
+    z-index: 5;
+    background-color: white;
+    padding-bottom: 10px;
+  }
+
+  /* 
+  レスポンシブアイコン変更、ログアウトモーダル
+   */
+
+   .configmodal-body a{
+    display: block;
+    font-weight: 600;
+    padding: 15px;
+   }
+
+
+
+
+  /* 
+  投稿モーダルの大きさ調整
+  */
+
+  #userPost-modal {
+    font-size: 90%;
+  }
+
+  #userPost-modal input, #userPost-modal textarea{
+    font-size: 90%;
+  }
+
+  .modal-header {
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }  
+  
+
+  /* 
+  フッタークレジット
+  */
+  .footer-credit {
+    margin-bottom: 50px;
+  }
+
+  .indexHeader-bar {
+    display: inline;
+    background-color:#343A40;
+  }
+
+
+}
