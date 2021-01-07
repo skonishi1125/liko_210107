@@ -56,8 +56,8 @@ exit();
 
 //   //echo $goodRetを使わない場合はこちらを採用する　$goodRet = $goodState->fetch();
 
-//   header('Location: http://localhost:8888/liko_201223/web/index.php');
-//   exit();
+// header('Location: ' . $url);
+// exit();
 
 // }
 
