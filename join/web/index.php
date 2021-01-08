@@ -460,7 +460,7 @@ include('../app/_parts/_header.php');
       <div class="col-md-6 profileTexts mt-3">
         <h6>名前</h6>
         <p>小西 慧(Satoru Konishi)<br>
-        1996年11月25日生まれ (2020年11月現在:24歳) </p>
+        1996年11月25日生まれ (2021年1月現在:24歳) </p>
         <h6>趣味</h6>
         <p>イラスト描画、ランニング、eSports</p>
         <h6>SNS</h6>
@@ -471,7 +471,7 @@ include('../app/_parts/_header.php');
             </li>
             <li>
               <p>Github<br>
-              <a href="https://github.com/skonishi1125/liko_re">https://github.com/skonishi1125/liko_re</a></p>
+              <a href="https://github.com/skonishi1125/liko_210107">https://github.com/skonishi1125/liko_210107</a></p>
             </li>
           </ul>
       </div>
