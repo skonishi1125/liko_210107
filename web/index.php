@@ -678,7 +678,9 @@ include('../app/_parts/_header.php');
             <?php endif; ?>
 
             <?php if (isset($post['post_pic']) ) : ?>
-              <img src="../post_picture/<?= h($post['post_pic']); ?>" alt="postpicture" class="img-thumbnail">
+              <img src="../post_picture/<?= h($post['post_pic']); ?>" alt="postpicture" class="img-thumbnail basePic objectFit">
+              <img src="../post_picture/<?= h($post['post_pic']); ?>" alt="postpicture" class="img-thumbnail d-none hidePic objectFit-hide">
+              <div class="modal-background d-none" id="modalBg"></div>
             <?php endif; ?>
           </div>
         </div>
