@@ -9,9 +9,9 @@ if(ini_get("session.use_cookies")) {
 session_destroy();
 
 //クッキーの削除
-setcookie('sessionid', '', time()-3600);
+setcookie('sessionid', '', time()-3600, '/web');
 
-header('Location: https://liko.link/join/web/index.php');
+header('Location: https://liko.link/web/login.php');
 exit();
 
 ?>
