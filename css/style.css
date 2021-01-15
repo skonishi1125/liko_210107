@@ -303,7 +303,6 @@ index.php
   text-align: center;
 }
 
-
 .movingCenter {
   position: fixed;
   top: 50%;
@@ -462,7 +461,35 @@ changeIcon.phpなど
   border-radius: 50%;
 }
 
+.userProfile-wrapper {
+  margin-top: 25px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  position: relative;
+}
 
+.userProfile-wrapper img {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.userProfile-name {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.profile-p {
+  margin-bottom: 5px !important;
+}
+
+.userProfile-configBtn {
+  position: absolute;
+  top: 50px;
+  right: 5vh;
+  z-index: 1;
+}
 
 
 
@@ -679,6 +706,10 @@ changeIcon.phpなど
   .indexHeader-bar {
     display: inline;
     background-color:#343A40;
+  }
+
+  .userProfile-wrapper {
+    margin-top: 40px;
   }
 
 
