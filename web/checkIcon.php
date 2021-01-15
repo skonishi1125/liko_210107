@@ -144,7 +144,7 @@ include('../app/_parts/_header.php');
   
     <div class="leftFix-configMenus">
       <a href="index.php"><i class="fas fa-home"></i>ホーム</a>
-      <a href="userpage.php"><i class="fas fa-user-alt"></i>マイページ</a>
+      <a href="userpage.php?id=<?= h($member['id']); ?>"><i class="fas fa-user-alt"></i>マイページ</a>
       <a href="changeIcon.php"><i class="fas fa-cog"></i>アイコンの変更</a>
       <a href="../app/logout.php"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
   
@@ -229,7 +229,7 @@ include('../app/_parts/_header.php');
   <a href="index.php" class="text-white"><i class="fas fa-home"></i></a>
   <a data-toggle="modal" data-target="#searchModal" class="text-white"><i class="fas fa-search"></i></a>
   <a data-toggle="modal" data-target="#configModal" class="text-white"><i class="fas fa-cog"></i></a>
-  <a href="userpage.php" class="text-white"><i class="fas fa-user-alt"></i></a>
+  <a href="userpage.php?id=<?= h($member['id']); ?>" class="text-white"><i class="fas fa-user-alt"></i></a>
 </nav>
 
 <!-- 
