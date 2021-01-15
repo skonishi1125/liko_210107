@@ -114,7 +114,7 @@ include('../app/_parts/_header.php');
   
     <div class="leftFix-configMenus">
       <a href="index.php"><i class="fas fa-home"></i>ホーム</a>
-      <a href="userpage.php"><i class="fas fa-user-alt"></i>マイページ</a>
+      <a href="userpage.php?id=<?= h($member['id']); ?>"><i class="fas fa-user-alt"></i>マイページ</a>
       <a href="changeIcon.php"><i class="fas fa-cog"></i>アイコンの変更</a>
       <a href="../app/logout.php"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
   
@@ -140,9 +140,13 @@ include('../app/_parts/_header.php');
       && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
       && $iconExt != '.JPG' ):
     ?>
-      <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+      <a href="userpage.php?id=<?= $member['id']; ?>">
+        <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+      </a>
     <?php else: ?>
-      <img class="iconImg img-thumbnail" src="../member_picture/<?php echo h($member['picture']); ?>">
+      <a href="userpage.php?id=<?= $member['id']; ?>">
+        <img class="iconImg img-thumbnail" src="../member_picture/<?php echo h($member['picture']); ?>">
+      </a>
     <?php endif; ?>
       <p><b><?php echo h($member['name']); ?></b></p>
       <a class="openCommentModal btn btn-primary disabled" role="button" data-toggle="modal" data-target="#userPost-modal">投稿する</a>
@@ -290,9 +294,13 @@ include('../app/_parts/_header.php');
             && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
             && $iconExt != '.JPG' ) : 
           ?>
-            <img class="img-thumbnail" src="../member_picture/user.png">
+              <a href="userpage.php?id=<?= $post['member_id'] ?>">
+                <img class="img-thumbnail" src="../member_picture/user.png">
+              </a>
             <?php else: ?>
-              <img class="img-thumbnail" src="../member_picture/<?= h($post['picture']);?>">
+              <a href="userpage.php?id=<?= $post['member_id'] ?>">
+                <img class="img-thumbnail" src="../member_picture/<?= h($post['picture']);?>">
+              </a>
             <?php endif; ?>
           </div>
 
@@ -382,9 +390,13 @@ include('../app/_parts/_header.php');
             && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
             && $iconExt != '.JPG' ) : 
           ?>
-            <img class="img-thumbnail" src="../member_picture/user.png">
+              <a href="userpage.php?id=<?= h($post['member_id']); ?>">
+                <img class="img-thumbnail" src="../member_picture/user.png">
+              </a>
             <?php else: ?>
-              <img class="img-thumbnail" src="../member_picture/<?= h($post['picture']);?>">
+              <a href="userpage.php?id=<?= h($post['member_id']); ?>">
+                <img class="img-thumbnail" src="../member_picture/<?= h($post['picture']);?>">
+              </a>
             <?php endif; ?>
           </div>
 
@@ -503,9 +515,13 @@ include('../app/_parts/_header.php');
           && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
           && $iconExt != '.JPG' ) :
         ?>
-          <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+            <a href="userpage.php?id=<?= h($revPost['member_id']); ?>">
+              <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+            </a>
           <?php else : ?>
-            <img class="iconImg img-thumbnail" src="../member_picture/<?= h($revPost['picture']);?>">
+            <a href="userpage.php?id=<?= h($revPost['member_id']); ?>">
+              <img class="iconImg img-thumbnail" src="../member_picture/<?= h($revPost['picture']);?>">
+            </a>
           <?php endif; ?>
         </div>
 
@@ -580,7 +596,7 @@ include('../app/_parts/_header.php');
   <a href="index.php" class="text-white"><i class="fas fa-home"></i></a>
   <a data-toggle="modal" data-target="#searchModal" class="text-white"><i class="fas fa-search"></i></a>
   <a data-toggle="modal" data-target="#configModal" class="text-white"><i class="fas fa-cog"></i></a>
-  <a href="userpage.php" class="text-white"><i class="fas fa-user-alt"></i></a>
+  <a href="userpage.php?id=<?= h($member['id']); ?>" class="text-white"><i class="fas fa-user-alt"></i></a>
 </nav>
 
 <a class="btn btn-outline-primary responsive-postButton btn-lg d-none" role="button" data-toggle="modal" data-target="#userPost-modal">

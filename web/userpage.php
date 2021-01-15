@@ -14,6 +14,26 @@ require('../app/_parts/_checkLogin.php');
 ----
 */
 
+/*
+userpages DB取得
+*/
+
+//index.phpなどでアイコンをクリックして飛んできた場合(get)
+if (!empty($_GET['id'])) {
+  $_SESSION['memberid'] = $_GET['id'];
+}
+
+//マイページボタンでpostで飛んできた場合(post)
+if (!empty($_POST['memberid'])) {
+  $_SESSION['memberid'] = $_POST['memberid'];
+}
+
+//DBから取得
+$userpages = $db->prepare('SELECT * FROM userpages WHERE member_id=?');
+$userpages->execute(array($_SESSION['memberid']));
+$userpage = $userpages->fetch();
+
+
 //ページ分け
 $page = $_REQUEST['page'];
 if ($page == ''){
@@ -24,7 +44,7 @@ $page = max($page, 1);
 
 // $counts = $db->query('SELECT COUNT(*) AS cnt FROM posts');
 $counts = $db->prepare('SELECT COUNT(*) AS cnt FROM posts WHERE member_id=?');
-$counts->bindParam(1,$member['id'],PDO::PARAM_INT);
+$counts->bindParam(1,$_SESSION['memberid'],PDO::PARAM_INT);
 $counts->execute();
 $cnt = $counts->fetch();
 $maxPage = ceil($cnt['cnt'] / 10);
@@ -37,7 +57,7 @@ if ($start < 0){
 
 //投稿
 $posts = $db->prepare('SELECT * FROM posts WHERE member_id=? ORDER BY created DESC LIMIT ?, 10');
-$posts->bindParam(1,$member['id'],PDO::PARAM_INT);
+$posts->bindParam(1,$_SESSION['memberid'],PDO::PARAM_INT);
 $posts->bindParam(2,$start,PDO::PARAM_INT);
 $posts->execute();
 
@@ -62,9 +82,10 @@ if (isset($_POST['review'])) {
       $member['id'], $_POST['postid'], $member['picture'], $_POST['review'],
     ));
 
-    header('Location: https://liko.link/web/userpage.php');
+    // 2ページ目以降でコメントした場合、そのページに飛ぶようにする
+    header('Location: https://liko.link/web/userpage.php?page=' . $_GET['page']);
     exit();
-    //これないと更新するたび増えていく
+    //これがないと更新するたびコメントが増えていく
   }else{
     $error['review'] = 'blank';
   }
@@ -76,21 +97,8 @@ if ($_SESSION['review'] == 'blank'){
   unset($_SESSION['review']);
 }
 
-//アイコン用のext取得
+//自分のアイコン用のext取得
 $iconExt = substr($member['picture'],-4);
-
-
-
-// いいねテスト
-$_SESSION['currentURI'] = $_SERVER['REQUEST_URI'];
-
-
-
-
-
-
-
-
 
 
 /* 
@@ -113,7 +121,7 @@ include('../app/_parts/_header.php');
   
     <div class="leftFix-configMenus">
       <a href="index.php"><i class="fas fa-home"></i>ホーム</a>
-      <a href="userpage.php"><i class="fas fa-user-alt"></i>マイページ</a>
+      <a href="userpage.php?id=<?= h($member['id']); ?>"><i class="fas fa-user-alt"></i>マイページ</a>
       <a href="changeIcon.php"><i class="fas fa-cog"></i>アイコンの変更</a>
       <a href="../app/logout.php"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
   
@@ -139,9 +147,13 @@ include('../app/_parts/_header.php');
       && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
       && $iconExt != '.JPG' ):
     ?>
-      <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+      <a href="userpage.php?id=<?= $member['id']; ?>">
+        <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+      </a>
     <?php else: ?>
-      <img class="iconImg img-thumbnail" src="../member_picture/<?php echo h($member['picture']); ?>">
+      <a href="userpage.php?id=<?= $member['id']; ?>">
+        <img class="iconImg img-thumbnail" src="../member_picture/<?php echo h($member['picture']); ?>">
+      </a>
     <?php endif; ?>
       <p><b><?php echo h($member['name']); ?></b></p>
       <a class="openCommentModal btn btn-primary disabled" role="button" data-toggle="modal" data-target="#userPost-modal">投稿する</a>
@@ -256,22 +268,75 @@ include('../app/_parts/_header.php');
   </nav>
   <?php endif; ?>
 
+
+    <!--
+     プロフィール欄
+    -->
+    <nav class="col-md-10 offset-md-2 pt-3 userProfile-wrapper">
+      <?php if ($_SESSION['id'] == $userpage['member_id']): ?>
+        <a class="userProfile-configBtn btn btn-primary btn-sm" role="button" href="changeProfile.php">編集</a>
+      <?php endif; ?>
+      <div class="row">
+        <div class="col-auto">
+          <?php 
+            $userpageExt = substr($userpage['picture'],-4);
+            if($userpageExt != 'jpeg' && $userpageExt != '.png' && $userpageExt != '.PNG'
+            && $userpageExt != 'JPEG' && $userpageExt != '.gif' && $userpageExt != '.jpg'
+            && $userpageExt != '.JPG' ): 
+          ?>
+            <img src="../member_picture/user.png" class="img-thumbnail mr-2">
+          <?php else: ?>
+            <img src="../member_picture/<?php echo h($userpage['picture']); ?>" class="img-thumbnail mr-2">
+          <?php endif; ?>
+        </div>
+        <div class="col-auto">
+          <!-- 名前 -->
+          <p class="userProfile-name"><?= $userpage['name']; ?></p>
+          <!-- 居住地 -->
+          <p class="profile-p">地域：<?= $userpage['region']; ?></p>
+
+          <!-- 登録日 -->
+          <?php
+            // 0を消す処理 2020年01月01日の場合、2020年1月1日となるよう調整
+            $regiYear = mb_substr($userpage['register'], 0, 4);
+            $regiMonth = mb_substr($userpage['register'], 5, 2);
+            $regiDay = mb_substr($userpage['register'], 8, 2);
+
+            if (mb_substr($regiMonth, 0, 1) == 0) {
+              $regiMonth = mb_substr($regiMonth, 1);
+            }
+
+            if (mb_substr($regiDay, 0, 1) == 0) {
+              $regiDay = mb_substr($regiDay, 1);
+            }
+          ?>
+          <p class="profile-p">登録日：<?= $regiYear ?>年<?= $regiMonth ?>月<?=$regiDay?>日</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="mt-3"><?= nl2br( makeLink( h($userpage['introduce']) ) ); ?></p>
+        </div>
+      </div>
+    </nav>
+
+
   <!-- 
     ログインユーザーへの挨拶
    -->
 
   <nav class="userGreeting col-md-10 offset-md-2 pt-3">
-    <div>
+    <div class="pb-1">
       <?php 
-      if($iconExt != 'jpeg' && $iconExt != '.png' && $iconExt != '.PNG'
-      && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
-      && $iconExt != '.JPG' ): 
+      if($userpageExt != 'jpeg' && $userpageExt != '.png' && $userpageExt != '.PNG'
+      && $userpageExt != 'JPEG' && $userpageExt != '.gif' && $userpageExt != '.jpg'
+      && $userpageExt != '.JPG' ): 
       ?>
         <img src="../member_picture/user.png" class="img-thumbnail mr-2">
       <?php else: ?>
-        <img src="../member_picture/<?php echo h($member['picture']); ?>" class="img-thumbnail mr-2">
+        <img src="../member_picture/<?php echo h($userpage['picture']); ?>" class="img-thumbnail mr-2">
       <?php endif; ?>
-      <span><b><?php echo $member['name'] ?></b>さんの投稿一覧</span>
+      <span><b><?php echo $userpage['name'] ?></b>さんの投稿一覧</span>
     </div>
   </nav>
 
@@ -290,19 +355,19 @@ include('../app/_parts/_header.php');
         <div class="row">
           <div class="col-auto text-md-center">
           <?php 
-            $iconExt = substr($member['picture'],-4);
+            $iconExt = substr($userpage['picture'],-4);
             if ($iconExt != 'jpeg' && $iconExt != '.png' && $iconExt != '.PNG'
             && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
             && $iconExt != '.JPG' ) : 
           ?>
             <img class="img-thumbnail" src="../member_picture/user.png">
             <?php else: ?>
-              <img class="img-thumbnail" src="../member_picture/<?= h($member['picture']);?>">
+              <img class="img-thumbnail" src="../member_picture/<?= h($userpage['picture']);?>">
             <?php endif; ?>
           </div>
 
           <div class="col-auto">
-            <span><b><?= h($member['name']); ?></b></span>
+            <span><b><?= h($userpage['name']); ?></b></span>
             <a href="view.php?id=<?= h($post['id']); ?>">Post ID:[<?= h($post['id']); ?>]</a>
             <br>
             <span><small>[<?= h($post['created']); ?>]</small></span>
@@ -382,19 +447,19 @@ include('../app/_parts/_header.php');
         <div class="row">
           <div class="col-auto text-md-center">
           <?php 
-            $iconExt = substr($member['picture'],-4);
+            $iconExt = substr($userpage['picture'],-4);
             if ($iconExt != 'jpeg' && $iconExt != '.png' && $iconExt != '.PNG'
             && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
             && $iconExt != '.JPG' ) : 
           ?>
             <img class="img-thumbnail" src="../member_picture/user.png">
             <?php else: ?>
-              <img class="img-thumbnail" src="../member_picture/<?= h($member['picture']);?>">
+              <img class="img-thumbnail" src="../member_picture/<?= h($userpage['picture']);?>">
             <?php endif; ?>
           </div>
 
           <div class="col-auto">
-            <span><b><?= h($member['name']); ?></b></span>
+            <span><b><?= h($userpage['name']); ?></b></span>
             <a href="view.php?id=<?= h($post['id']); ?>">Post ID:[<?= h($post['id']); ?>]</a>
             <br>
             <span><small>[<?= h($post['created']); ?>]</small></span>
@@ -508,9 +573,13 @@ include('../app/_parts/_header.php');
           && $iconExt != 'JPEG' && $iconExt != '.gif' && $iconExt != '.jpg'
           && $iconExt != '.JPG' ) :
         ?>
-          <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+          <a href="userpage.php?id=<?= h($revPost['member_id']); ?>">
+            <img class="iconImg img-thumbnail" src="../member_picture/user.png">
+          </a>
           <?php else : ?>
-            <img class="iconImg img-thumbnail" src="../member_picture/<?= h($revPost['picture']);?>">
+            <a href="userpage.php?id=<?= h($revPost['member_id']); ?>">
+              <img class="iconImg img-thumbnail" src="../member_picture/<?= h($revPost['picture']);?>">
+            </a>
           <?php endif; ?>
         </div>
 
@@ -585,7 +654,7 @@ include('../app/_parts/_header.php');
   <a href="index.php" class="text-white"><i class="fas fa-home"></i></a>
   <a data-toggle="modal" data-target="#searchModal" class="text-white"><i class="fas fa-search"></i></a>
   <a data-toggle="modal" data-target="#configModal" class="text-white"><i class="fas fa-cog"></i></a>
-  <a href="userpage.php" class="text-white"><i class="fas fa-user-alt"></i></a>
+  <a href="userpage.php?id=<?= h($member['id']); ?>" class="text-white"><i class="fas fa-user-alt"></i></a>
 </nav>
 
 <a class="btn btn-outline-primary responsive-postButton btn-lg d-none" role="button" data-toggle="modal" data-target="#userPost-modal">

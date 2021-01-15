@@ -56,6 +56,15 @@ if(!empty($_POST)) {
     $_SESSION['join']['image'],
     hash('sha256',$_SESSION['join']['email']),
   ));
+
+    // userpages初期設定
+    $userpages_statement = $db->prepare('INSERT INTO userpages SET name=?, picture=?, register=NOW(), introduce=?');
+    $userpages_ret = $userpages_statement->execute(array(
+      $_SESSION['join']['name'],
+      $_SESSION['join']['image'],
+      "よろしくお願いします。",
+    ));
+    
   unset($_SESSION['join']);
 
   // thanks.phpにURL直移入で繋げなくする処理

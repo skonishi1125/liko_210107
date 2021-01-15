@@ -43,6 +43,10 @@ if (!empty($_FILES)) {
 $iconExt = substr($member['picture'],-4);
 
 
+//userpages DB取得
+$userpages = $db->prepare('SELECT * FROM userpages WHERE member_id=?');
+$userpages->execute(array($member['id']));
+$userpage = $userpages->fetch();
 
 
 /* 

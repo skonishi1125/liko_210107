@@ -99,7 +99,14 @@ if($ext == '.gif'){
 
 //更新処理
 if(!empty($_POST)) {
+  //members DBのpicture更新
   $statement = $db->prepare('UPDATE members SET picture=?,modified=NOW() WHERE id=?');
+  echo $ret = $statement->execute(array(
+    $_SESSION['join']['image'], $member['id'],
+  ));
+
+  //userpages DBのpicture更新
+  $statement = $db->prepare('UPDATE userpages SET picture=?,modified=NOW() WHERE member_id=?');
   echo $ret = $statement->execute(array(
     $_SESSION['join']['image'], $member['id'],
   ));

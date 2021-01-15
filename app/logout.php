@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+//セッション情報の削除
 $_SESSION = array();
 if(ini_get("session.use_cookies")) {
   $params = session_get_cookie_params();
