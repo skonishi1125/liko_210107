@@ -462,7 +462,7 @@ include('../app/_parts/_header.php');
         <p>小西 慧(Satoru Konishi)<br>
         1996年11月25日生まれ (2021年1月現在:24歳) </p>
         <h6>趣味</h6>
-        <p>イラスト描画、ランニング、eSports</p>
+        <p>イラスト描画、ランニング、ゲーム(eスポーツ)</p>
         <h6>SNS</h6>
         <ul>
             <li>
