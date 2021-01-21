@@ -2,7 +2,7 @@ $(function() {
   // console.log('接続テスト');
 
   $('.contents-cancelGoodBtn').click(function() {
-    let $likediv =$(this).parent("div");
+    let $likediv = $(this).parent("div");
     let ccGB_postid = $(this).data('postid');
     let ccGB_memberid = $(this).data('memberid');
     let $ccGB_goodNumberSpace = $likediv.find('.ccGB_goodNumberSpace');
@@ -27,7 +27,7 @@ $(function() {
   });
 
   $('.contents-addGoodBtn').click(function() {
-    let $likediv =$(this).parent("div");
+    let $likediv = $(this).parent("div");
     let caGB_postid = $(this).data('postid');
     let caGB_memberid = $(this).data('memberid');
     let $ccGB_goodNumberSpace = $likediv.find('.ccGB_goodNumberSpace');

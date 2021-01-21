@@ -2,6 +2,26 @@
 'use strict';
 
 // 
+// 削除ボタン押下時の確認
+// 
+{
+  // console.log('読み込みチェック');
+  $(function(){
+
+    $('.trashbtn').click(function(){
+      var postid = $(this).data('postid');
+      console.log(postid);
+      var res = window.confirm('本投稿を削除してもよろしいですか？');
+      if (res == true) {
+        window.location.href = "../app/delete.php?id=" + postid;
+      }
+
+    });
+
+  });
+}
+
+// 
 // input要素でenterを押してもsubmitされないようにする処理
 // 
 {

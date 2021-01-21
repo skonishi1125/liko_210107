@@ -33,7 +33,7 @@
             <?php endif; ?>
 
             <?php if ($_SESSION['id'] == $post['member_id']) : ?>
-              <a class="btn btn-outline-primary btn-sm ml-5" role="button" href="../app/delete.php?id=<?= h($post['id']); ?>">
+              <a class="btn btn-outline-primary btn-sm trashbtn" role="button" data-postid="<?= h($post['id']); ?>">
                 <i class="fas fa-trash"></i>
               </a>
             <?php endif; ?>

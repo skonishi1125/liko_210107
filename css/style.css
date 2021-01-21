@@ -372,6 +372,11 @@ index.php
   background-color: inherit;
 }
 
+.trashbtn {
+  position: absolute;
+  left: 55px;
+}
+
 
 /* 
 投稿に対してのコメント表示
