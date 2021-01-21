@@ -253,7 +253,7 @@ include('../app/_parts/_header.php');
     <hr>
     <!-- メッセージ無記入エラー -->
     <?php if($error['message'] == 'blank' || $error['review'] == 'blank'): ?>
-      <p>・無記入のままで投稿することはできません。</p>
+      <p>・メッセージ無記入のままで投稿することはできません。</p>
     <?php endif; ?>
     <!-- 拡張子エラー -->
     <?php if($error['postpic'] == 'type'): ?>
@@ -264,7 +264,8 @@ include('../app/_parts/_header.php');
       <p>
         ・URLに誤りがあります。現状YouTube動画のみの対応となっています。<br>
         　投稿例：https://www.youtube.com/watch?v=ABCDEFGHIJK<br>
-        　(URLの末尾がv=[動画のID]で終わるように投稿してください)
+        　(URLの末尾がv=[動画のID]で終わるように投稿してください)<br>
+        　現状YouTube側の「共有」ボタンで取得できるURLは非対応ですので、ブラウザ上のURLをコピー&ペーストにてご利用ください。
       </p>
     <?php endif; ?>
   </nav>
