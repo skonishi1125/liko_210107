@@ -361,6 +361,17 @@ index.php
   padding-right: 0;
 }
 
+.testLikebtn {
+  position: absolute;
+  min-width: 45px;
+}
+
+.addLikebtn:hover{
+  /* いいね!ボタンのhover効果を失くす */
+  color: #dc3545;
+  background-color: inherit;
+}
+
 
 /* 
 投稿に対してのコメント表示

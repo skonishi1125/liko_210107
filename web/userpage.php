@@ -113,7 +113,9 @@ include('../app/_parts/_header.php');
  -->
 
 <header class="indexHeader-bar">
-  <img src="../join/img/whiteLogo.png" alt="liko" class="indexHeader-logo">
+  <a href="index.php">
+    <img src="../join/img/whiteLogo.png" alt="liko" class="indexHeader-logo">
+  </a>
 </header>
 
 <div class="container-fluid">
@@ -405,25 +407,7 @@ include('../app/_parts/_header.php');
           </div>
 
           <div class="col-md-2 reaction-space">
-            <!-- いいねボタン -->
-            <!-- $goodArray(ユーザーがいいねしたログ)の中に、post idが含まれている時(いいね済みの時) -->
-            <?php $goodFlag = in_array($post['id'], $goodArray, true); ?>
-            <?php if ($goodFlag) : ?>
-              <a class="btn btn-danger btn-sm" role="button" href="../app/subGoods.php?good=<?= h($post['id']); ?>">
-                <i class="good fas fa-heart"></i> <?= h($post['good']); ?>
-              </a>
-            <?php else: ?>
-              <a class="btn btn-outline-danger btn-sm" role="button" href="../app/addGoods.php?good=<?= h($post['id']); ?>">
-                <i class="good fas fa-heart"></i> <?= h($post['good']); ?>
-              </a>
-            <?php endif; ?>
-
-            <?php if ($_SESSION['id'] == $post['member_id']) : ?>
-              <a class="btn btn-outline-primary btn-sm ml-2" role="button" href="../app/delete.php?id=<?= h($post['id']); ?>">
-                <i class="fas fa-trash"></i>
-              </a>
-            <?php endif; ?>
-
+            <?php require('../app/_parts/_reaction_good.php'); ?>
           </div>
         </div>
 
@@ -518,25 +502,7 @@ include('../app/_parts/_header.php');
           </div>
 
           <div class="col-md-2 reaction-space">
-            <!-- いいねボタン -->
-            <!-- $goodArray(ユーザーがいいねしたログ)の中に、post idが含まれている時(いいね済みの時) -->
-            <?php $goodFlag = in_array($post['id'], $goodArray, true); ?>
-            <?php if ($goodFlag) : ?>
-              <a class="btn btn-danger btn-sm" role="button" href="../app/subGoods.php?good=<?= h($post['id']); ?>">
-                <i class="good fas fa-heart"></i> <?= h($post['good']); ?>
-              </a>
-            <?php else: ?>
-              <a class="btn btn-outline-danger btn-sm" role="button" href="../app/addGoods.php?good=<?= h($post['id']); ?>">
-                <i class="good fas fa-heart"></i> <?= h($post['good']); ?>
-              </a>
-            <?php endif; ?>
-
-            <?php if ($_SESSION['id'] == $post['member_id']) : ?>
-              <a class="btn btn-outline-primary btn-sm ml-2" role="button" href="../app/delete.php?id=<?= h($post['id']); ?>">
-                <i class="fas fa-trash"></i>
-              </a>
-            <?php endif; ?>
-
+            <?php require('../app/_parts/_reaction_good.php'); ?>
           </div>
         </div>
 
