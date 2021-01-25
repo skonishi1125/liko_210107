@@ -345,10 +345,10 @@ include('../app/_parts/_header.php');
     <section id="faq">
   
       <div class="intro-containerFAQ col-md-12">
-        <h5 data-toggle="collapse" href="#collapseContent01" role="button" aria-expanded="false" aria-controls="collapseContent01" id="toggleIcon1" class="py-3">
+        <h5 data-toggle="collapse" href="#collapseContent01" role="button" aria-expanded="false" aria-controls="collapseContent01" id="toggleIcon1" class="py-3 faqOpenBtn">
           <b class="ml-3">このサイトについて</b>
           <i class="fas fa-plus mr-3" id="plus1"></i>
-          <i class="fas fa-minus mr-3 skelton" id="minus1"></i>
+          <i class="fas fa-minus mr-3 d-none" id="minus1"></i>
         </h5>
   
         <div class="collapse" id="collapseContent01">
@@ -362,10 +362,10 @@ include('../app/_parts/_header.php');
       <h2 style="color: white" >　</h2>
     
       <div class="intro-containerFAQ col-md-12">
-        <h5 data-toggle="collapse" href="#collapseContent02" role="button" aria-expanded="false" aria-controls="collapseContent02" id="toggleIcon2" class="py-3">
+        <h5 data-toggle="collapse" href="#collapseContent02" role="button" aria-expanded="false" aria-controls="collapseContent02" id="toggleIcon2" class="py-3 faqOpenBtn">
           <b class="ml-3">情報の取扱い</b>
           <i class="fas fa-plus mr-3" id="plus2"></i>
-          <i class="fas fa-minus mr-3 skelton" id="minus2"></i>
+          <i class="fas fa-minus mr-3 d-none" id="minus2"></i>
         </h5>
   
         <div class="collapse" id="collapseContent02">
@@ -390,10 +390,10 @@ include('../app/_parts/_header.php');
       <h2 style="color: white" >　</h2>
     
       <div class="intro-containerFAQ col-md-12">
-        <h5 data-toggle="collapse" href="#collapseContent03" role="button" aria-expanded="false" aria-controls="collapseContent03" id="toggleIcon3" class="py-3">
+        <h5 data-toggle="collapse" href="#collapseContent03" role="button" aria-expanded="false" aria-controls="collapseContent03" id="toggleIcon3" class="py-3 faqOpenBtn">
           <b class="ml-3">不具合が発生した時</b>
           <i class="fas fa-plus mr-3" id="plus3"></i>
-          <i class="fas fa-minus mr-3 skelton" id="minus3"></i>
+          <i class="fas fa-minus mr-3 d-none" id="minus3"></i>
         </h5>
   
         <div class="collapse" id="collapseContent03">

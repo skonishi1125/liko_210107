@@ -237,18 +237,30 @@ FAQ画面
   margin: 0 auto;
 }
 
-.fa-plus, .fa-minus {
-  transition: 0.8s;
-  float: right;
+.faqOpenBtn {
+  position: relative;
 }
 
-.circle {
-  transform: rotate(360deg);
+.fa-plus, .fa-minus {
+  float: right;
+  position: absolute;
+  right: 15px;
 }
+
+/* .circle {
+  transform: rotate(180deg);
+} */
 
 .skelton {
   opacity: 0.01;
 }
+
+.collapsing {
+  -webkit-transition: height 0.1s ease;
+  transition: height 0.1s ease;
+}
+
+
 
 
 /* 
